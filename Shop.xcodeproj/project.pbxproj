@@ -20,6 +20,8 @@
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
 		C0F6497D1E4633380054CD90 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F6497C1E4633380054CD90 /* RealmManager.swift */; };
 		C0F649811E4639D90054CD90 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649801E4639D90054CD90 /* BusinessCell.swift */; };
+		C0F649841E465ECE0054CD90 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649831E465ECE0054CD90 /* Business.swift */; };
+		C0F649871E4662050054CD90 /* BusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649861E4662050054CD90 /* BusinessList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
 		C0F6497C1E4633380054CD90 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		C0F649801E4639D90054CD90 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		C0F649831E465ECE0054CD90 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		C0F649861E4662050054CD90 /* BusinessList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				C03502821E441B15008796E7 /* .gitignore */,
 				C0F649781E461B4F0054CD90 /* User */,
 				C0F6497E1E46369E0054CD90 /* Realm */,
+				C0F649851E4661780054CD90 /* Business */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -147,6 +152,15 @@
 				C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */,
 			);
 			name = BusinessChatVC;
+			sourceTree = "<group>";
+		};
+		C0F649851E4661780054CD90 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				C0F649831E465ECE0054CD90 /* Business.swift */,
+				C0F649861E4662050054CD90 /* BusinessList.swift */,
+			);
+			name = Business;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +293,8 @@
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
 				C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */,
 				C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */,
+				C0F649871E4662050054CD90 /* BusinessList.swift in Sources */,
+				C0F649841E465ECE0054CD90 /* Business.swift in Sources */,
 				C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */,
 				C0F6497D1E4633380054CD90 /* RealmManager.swift in Sources */,
 			);
