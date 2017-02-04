@@ -10,6 +10,7 @@
 		693D9BF635B467E8DDEB62EA /* Pods_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833FB8C38CF683C9E887F8C7 /* Pods_Shop.framework */; };
 		C03502831E441B15008796E7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C03502821E441B15008796E7 /* .gitignore */; };
 		C03502851E44231D008796E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C03502841E44231D008796E7 /* GoogleService-Info.plist */; };
+		C036EE831E468887009899DB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036EE821E468887009899DB /* Product.swift */; };
 		C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C041B1CF1E341A310021DEA4 /* AppDelegate.swift */; };
 		C041B1D51E341A310021DEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D31E341A310021DEA4 /* Main.storyboard */; };
 		C041B1D71E341A310021DEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D61E341A310021DEA4 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		833FB8C38CF683C9E887F8C7 /* Pods_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03502821E441B15008796E7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C03502841E44231D008796E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C036EE821E468887009899DB /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C041B1CC1E341A310021DEA4 /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C041B1CF1E341A310021DEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C041B1D41E341A310021DEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				C0F649831E465ECE0054CD90 /* Business.swift */,
 				C0F649861E4662050054CD90 /* BusinessList.swift */,
+				C036EE821E468887009899DB /* Product.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C036EE831E468887009899DB /* Product.swift in Sources */,
 				C0F649811E4639D90054CD90 /* BusinessCell.swift in Sources */,
 				C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */,
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
