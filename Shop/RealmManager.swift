@@ -48,11 +48,15 @@ class RealmManager {
             if results.count > 0 {
                 CurrentUser.sharedInstance.setCurrentUserWithRealm(results: results)
             } else {
-                let newRealmUser = RealmCurrentUser()
-                newRealmUser.createUser()
-                self.write(newRealmUser)
+                createNewUser()
             }
         }
+    }
+    
+    fileprivate func createNewUser() {
+        let newRealmUser = RealmCurrentUser()
+        newRealmUser.createUser()
+        self.write(newRealmUser)
     }
     
 }
