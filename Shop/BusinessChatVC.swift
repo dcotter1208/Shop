@@ -1,5 +1,5 @@
 //
-//  StoreChatVC.swift
+//  BusinessChatVC.swift
 //  Shop
 //
 //  Created by Donovan Cotter on 1/21/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreChatVC: UIViewController {
+class BusinessChatVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
