@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -31,7 +32,7 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         let businessCell = tableView.dequeueReusableCell(withIdentifier: BusinessCellIdentifier, for: indexPath) as! BusinessCell
         let business = businesses[indexPath.row]
         businessCell.nameLabel.text = business.name
-        businessCell.logoImageView.image = business.logo
+        businessCell.logoImageView.image = business.logo.af_imageRoundedIntoCircle()
         
         return businessCell
     }
