@@ -16,6 +16,7 @@
 		C041B1D71E341A310021DEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D61E341A310021DEA4 /* Assets.xcassets */; };
 		C041B1DA1E341A310021DEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D81E341A310021DEA4 /* LaunchScreen.storyboard */; };
 		C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */; };
+		C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */; };
 		C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649741E4619980054CD90 /* CurrentUser.swift */; };
 		C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649761E461B140054CD90 /* RealmCurrentUser.swift */; };
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
@@ -39,6 +40,7 @@
 		C041B1D91E341A310021DEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C041B1DB1E341A310021DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessChatVC.swift; sourceTree = "<group>"; };
+		C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyURLFactory.swift; sourceTree = "<group>"; };
 		C0F649741E4619980054CD90 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C0F649761E461B140054CD90 /* RealmCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCurrentUser.swift; sourceTree = "<group>"; };
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
@@ -109,8 +111,17 @@
 				C0F649781E461B4F0054CD90 /* User */,
 				C0F6497E1E46369E0054CD90 /* Realm */,
 				C0F649851E4661780054CD90 /* Business */,
+				C0C840EB1E479D3A00E89C3F /* Networking */,
 			);
 			path = Shop;
+			sourceTree = "<group>";
+		};
+		C0C840EB1E479D3A00E89C3F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		C0F649781E461B4F0054CD90 /* User */ = {
@@ -294,6 +305,7 @@
 				C036EE831E468887009899DB /* Product.swift in Sources */,
 				C0F649811E4639D90054CD90 /* BusinessCell.swift in Sources */,
 				C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */,
+				C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */,
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
 				C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */,
 				C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */,
