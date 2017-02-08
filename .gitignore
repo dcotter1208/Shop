@@ -42,8 +42,7 @@ playground.xcworkspace
 .build/
 
 # plists
-MapApp/GoogleService-Info.plist
-MapApp/Keys.plist
+Shop/Keys.plist
 
 # CocoaPods
 #
