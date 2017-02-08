@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 //Best Buy JSON Keys
 fileprivate let kBestBuyProductName = "name"
@@ -20,7 +21,7 @@ fileprivate let kBestBuyProductRelatedProducts = "relatedProducts"
 fileprivate let kBestBuyProductInStoreAvailability = "inStoreAvailability"
 fileprivate let kBestBuyProductOnlineAvailability = "onlineAvailability"
 
-fileprivate let bestBuyDictProductDict = [kBestBuyProductName                 : "",
+fileprivate var bestBuyDictProductDict = [kBestBuyProductName                 : "",
                                           kBestBuyProductUPC                  : "",
                                           kBestBuyProductDescription          : "",
                                           kBestBuyProductRegPrice             : "",
@@ -33,24 +34,67 @@ fileprivate let bestBuyDictProductDict = [kBestBuyProductName                 : 
 
 class JSONMapper {
     
-    func createProduct(forProductType productType: ProductType, JSON: NSDictionary) -> Product {
+    func createProduct(forProductType productType: ProductType, json: [String : Any]) -> Product {
         
-        let product =
-        
-        
-    }
-    
-    fileprivate func createDictProductType(productType: ProductType) -> [String : Any] {
         switch productType {
         case .bestBuy:
-            return bestBuyDictProductDict
+            return createBestBuyProduct(json: json)
         }
     }
-    
-    fileprivate func createBestBuyProduct(dict: [String : Any]) {
-        if let name = dict[kBestBuyProductName] as? String {
-            
+
+    fileprivate func createBestBuyProduct(json: [String : Any]) -> Product {
+        var product = Product(name: "", UPC: "", description: "'", regPrice: "", salePrice: "", rating: "", displayImage: "", imageURLs: [""], similarProducts: nil, isAvailableInStore: false, isAvailableOnline: false)
+        let json = JSON(json)
+        if let name = json[kBestBuyProductName].string {
+            product.name = name
         }
+        
+        if let UPC = json[kBestBuyProductUPC].string {
+            product.UPC = UPC
+        }
+        
+        if let description = json[kBestBuyProductDescription].string {
+            product.description = description
+        }
+        
+        if let regPrice = json[kBestBuyProductRegPrice].rawString() {
+            product.regPrice = regPrice
+        }
+        
+        if let salePrice = json[kBestBuyProductSalePrice].rawString() {
+            product.salePrice = salePrice
+        }
+        
+        if let rating = json[kBestBuyProductRating].rawString() {
+            product.rating = rating
+        }
+        
+        if let image = json[kBestBuyProductDisplayImage].string {
+            product.displayImage = image
+        }
+        
+//        if let relatedProduct = json[kBestBuyProductRelatedProducts].array {
+//            //Map related products by taking the related products JSON map those into 'Product' objects
+////            product.similarProducts = 
+//        }
+        
+        if let inStoreAvailability = json[kBestBuyProductInStoreAvailability].rawString() {
+            if inStoreAvailability == "true" {
+                product.isAvailableInStore = true
+            } else {
+                product.isAvailableInStore = false
+            }
+        }
+        
+        if let isAvailableOnline = json[kBestBuyProductOnlineAvailability].rawString() {
+            if isAvailableOnline == "true" {
+                product.isAvailableOnline = true
+            } else {
+                product.isAvailableOnline = false
+            }
+        }
+        
+        return product
     }
     
 }

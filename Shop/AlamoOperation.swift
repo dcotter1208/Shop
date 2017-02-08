@@ -16,12 +16,12 @@ class AlamoOperation {
         Alamofire.request(URL).responseJSON {
             (response) in
             print("DATA: \(response.data)")
-            print("RESULT VALUE: \(response.result.value)")
             print("Status Code: \(response.response?.statusCode)")
             print("ERROR: \(response.error)")
             
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                let product = JSONMapper().createProduct(forProductType: .bestBuy, json: JSON as! [String : Any])
+                print("PRODUCT****\(product)")
             }
             
         }

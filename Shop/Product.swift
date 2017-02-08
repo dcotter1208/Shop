@@ -20,10 +20,12 @@ struct Product {
     var name: String
     var UPC: String
     var description: String
-    var price: String
-    var rating: Float
+    var regPrice: String
+    var salePrice: String
+    var rating: String
+    var displayImage: String
     var imageURLs: [String]
-    var similarItems: [Product]
+    var similarProducts: [Product]?
     var isAvailableInStore: Bool
-    var availableOnline: Bool
+    var isAvailableOnline: Bool
 }
