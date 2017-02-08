@@ -11,6 +11,11 @@ import UIKit
  Break this up into a Product protocol.
  *******/
 
+
+enum ProductType {
+    case bestBuy
+}
+
 struct Product {
     var name: String
     var UPC: String

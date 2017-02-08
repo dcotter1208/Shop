@@ -18,6 +18,10 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         businesses = BusinessList.getAllBusinesses()
         super.viewDidLoad()
         RealmManager().setCurrentUserProfileWithRealm()
+        
+        let bestbuyURL = BestBuyURLFactory().URLForProduct(SKU: "5446701")
+        AlamoOperation.requestWithURL(URL: bestbuyURL)
+        
     }
 
     override func didReceiveMemoryWarning() {
