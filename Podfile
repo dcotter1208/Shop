@@ -9,6 +9,7 @@ pod 'Firebase/Core'
 pod 'RealmSwift'
 pod 'Alamofire', '~> 4.3'
 pod 'AlamofireImage', '~> 3.1'
+pod 'SwiftyJSON'
   # Pods for Shop
 
 end

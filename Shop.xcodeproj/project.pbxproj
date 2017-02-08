@@ -17,6 +17,11 @@
 		C041B1DA1E341A310021DEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D81E341A310021DEA4 /* LaunchScreen.storyboard */; };
 		C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */; };
 		C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */; };
+		C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */; };
+		C0C840F11E4B7DD800E89C3F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C840F01E4B7DD800E89C3F /* Keys.plist */; };
+		C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */; };
+		C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F41E4B974500E89C3F /* JSONMapper.swift */; };
+		C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */; };
 		C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649741E4619980054CD90 /* CurrentUser.swift */; };
 		C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649761E461B140054CD90 /* RealmCurrentUser.swift */; };
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
@@ -41,6 +46,11 @@
 		C041B1DB1E341A310021DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessChatVC.swift; sourceTree = "<group>"; };
 		C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyURLFactory.swift; sourceTree = "<group>"; };
+		C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoOperation.swift; sourceTree = "<group>"; };
+		C0C840F01E4B7DD800E89C3F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFactory.swift; sourceTree = "<group>"; };
+		C0C840F41E4B974500E89C3F /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
+		C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDictKey.swift; sourceTree = "<group>"; };
 		C0F649741E4619980054CD90 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C0F649761E461B140054CD90 /* RealmCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCurrentUser.swift; sourceTree = "<group>"; };
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
@@ -107,6 +117,7 @@
 				C041B1D81E341A310021DEA4 /* LaunchScreen.storyboard */,
 				C041B1DB1E341A310021DEA4 /* Info.plist */,
 				C03502841E44231D008796E7 /* GoogleService-Info.plist */,
+				C0C840F01E4B7DD800E89C3F /* Keys.plist */,
 				C03502821E441B15008796E7 /* .gitignore */,
 				C0F649781E461B4F0054CD90 /* User */,
 				C0F6497E1E46369E0054CD90 /* Realm */,
@@ -119,7 +130,10 @@
 		C0C840EB1E479D3A00E89C3F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */,
 				C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */,
+				C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */,
+				C0C840F41E4B974500E89C3F /* JSONMapper.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -136,8 +150,8 @@
 		C0F6497B1E461E9D0054CD90 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C0F649821E4639FF0054CD90 /* BusinessChatVC */,
 				C0F6497F1E4639A00054CD90 /* BusinessSelectionVC */,
+				C0F649821E4639FF0054CD90 /* BusinessChatVC */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -173,6 +187,7 @@
 				C0F649831E465ECE0054CD90 /* Business.swift */,
 				C0F649861E4662050054CD90 /* BusinessList.swift */,
 				C036EE821E468887009899DB /* Product.swift */,
+				C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -239,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C840F11E4B7DD800E89C3F /* Keys.plist in Resources */,
 				C03502831E441B15008796E7 /* .gitignore in Resources */,
 				C041B1DA1E341A310021DEA4 /* LaunchScreen.storyboard in Resources */,
 				C03502851E44231D008796E7 /* GoogleService-Info.plist in Resources */,
@@ -311,7 +327,11 @@
 				C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */,
 				C0F649871E4662050054CD90 /* BusinessList.swift in Sources */,
 				C0F649841E465ECE0054CD90 /* Business.swift in Sources */,
+				C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */,
+				C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */,
 				C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */,
+				C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */,
+				C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */,
 				C0F6497D1E4633380054CD90 /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
