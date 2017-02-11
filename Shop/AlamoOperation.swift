@@ -20,8 +20,9 @@ class AlamoOperation {
             print("ERROR: \(response.error)")
             
             if let JSON = response.result.value {
+                print("JSON: \(JSON)")
                 let product = JSONMapper().createProduct(forProductType: .bestBuy, json: JSON as! [String : Any])
-                print("PRODUCT****\(product)")
+//                print("PRODUCT****\(product)")
             }
             
         }
