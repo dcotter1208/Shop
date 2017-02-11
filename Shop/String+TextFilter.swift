@@ -12,7 +12,7 @@ extension String {
     
     //Removes a supplied array puncutations from a string and returns a new string.
     func filterOutPunctuations(punctuations: [String]) -> String {
-        var filteredString = self.removeCommandWords()
+        var filteredString = self
         for punctuation in punctuations {
             if let puncChar = punctuation.characters.first {
                 if self.characters.contains(puncChar) {
@@ -25,7 +25,7 @@ extension String {
     
     func removeCommandWords() -> String {
         //Remove "search for" && "find"
-        var newString = ""
+        var newString = self
         var stringAsArray = self.components(separatedBy: " ")
         if stringAsArray[0] == "search" {
             stringAsArray.remove(at: 0)

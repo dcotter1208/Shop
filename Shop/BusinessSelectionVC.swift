@@ -20,7 +20,7 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         RealmManager().setCurrentUserProfileWithRealm()
 
        // let badTextFormat = "searchforcomputers"
-        let testStringForFilter = "searh for computers"
+        let testStringForFilter = "search for@ computers!"
         
         let bestbuyTextSearchURL = BestBuyURLFactory().URLForKeywordSearch(searchText: testStringForFilter)
         
