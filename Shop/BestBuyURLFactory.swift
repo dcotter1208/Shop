@@ -58,25 +58,27 @@ class BestBuyURLFactory {
     
     //
     func URLForKeywordSearch(searchText: String) -> String {
+        //**Zip Code will be replaced by the user's location.
+        
         let filteredSearchtext = createSearchableText(fromText: searchText)
-        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(searchText))?format=json&show=storeId,name,products.sku,products.name&apiKey=\(apiKey!)"
+        
+        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&show=storeId,name,products.sku,products.name&apiKey=\(apiKey!)"
     }
     
-    func createSearchableText(fromText text: String) -> String {
-        
+    fileprivate func createSearchableText(fromText text: String) -> String {
+        let punctuationToRemove = [".", "#","$", "*", "!", "(", ")", "()", "%", "@", "^", "+", "=", ":", ";", ",", "/", "_"]
+        let newString = text.filterOutPunctuations(punctuations: punctuationToRemove)
+
         //1. *IF* the text contains a specified Best Buy Cateogies then search for that
         
         //2. *ELSE* put the &search='word'
-        let newString = text.remove(punctuations: punctuationToRemove)
-        let punctuationToRemove = [".", "#","$", "*", "!", "(", ")", "()", "%", "@", "^", "+", "=", ":", ";", ",", "/", "_"]
         let qualifiedString = produceQualifiedTextSearchString(string: newString)
-        return qualifiedString
+        return qualifiedString.removeCommandWords()
     }
     
     fileprivate func produceQualifiedTextSearchString(string: String) -> String {
         return "search=\(string)".replacingOccurrences(of: " ", with: "&search=")
     }
-    
     
 }
 
