@@ -68,13 +68,10 @@ class BestBuyURLFactory {
     fileprivate func createSearchableText(fromText text: String) -> String {
         let punctuationToRemove = [".", "#","$", "*", "!", "(", ")", "()", "%", "@", "^", "+", "=", ":", ";", ",", "/", "_"]
         let newString = text.filterOutPunctuations(punctuations: punctuationToRemove)
-            
-//        newString.removeCommandWords()
-
-        //1. *IF* the text contains a specified Best Buy Cateogies then search for that
-        
-        //2. *ELSE* put the &search='word'
         let qualifiedString = produceQualifiedTextSearchString(string: newString.removeCommandWords())
+        
+        //**IF** qualifiedString is only one word and contains one of the specified Best Buy categories then do a category search otherwise continue on with the text search.
+        
         return qualifiedString
     }
     

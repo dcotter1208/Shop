@@ -36,13 +36,28 @@ extension String {
         }
         
         newString = stringAsArray.joined(separator: " ")
-            
-//            && stringAsArray[1] == "for" {
-//            stringAsArray.remove(at: 1)
-//            stringAsArray.remove(at: 0)
-//            return stringAsArray.joined(separator: " ")
-//        }
+
         return newString
     }
+    
+    func textNouns() -> [String] {
+        let options: NSLinguisticTagger.Options = [.omitWhitespace, .omitPunctuation , .omitOther, .joinNames]
+        let tagger = NSLinguisticTagger(tagSchemes: NSLinguisticTagger.availableTagSchemes(forLanguage: "en"), options: Int(options.rawValue))
+        tagger.string = self
+        var tokens = [(String, String?)]()
+        var nouns = [String]()
+        tagger.enumerateTags(in: NSMakeRange(0, self.characters.count), scheme: NSLinguisticTagSchemeLexicalClass, options: options) {
+            (tag, tokenRange, _, _) in
+            //get the token
+            let token = (self as NSString).substring(with: tokenRange)
+            tokens.append((token, tag))
+        }
+        let nounTokens = tokens.filter { $0.1 == "Noun" }
+        for noun in nounTokens {
+            nouns.append(noun.0)
+        }
+        return nouns
+    }
+    
 
 }
