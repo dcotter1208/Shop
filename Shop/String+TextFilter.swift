@@ -75,11 +75,18 @@ extension String {
                 foundBrands.append(brand)
             }
         }
-
-        let stringWithoutKeywords = "\(foundBrands.joined(separator: ",")) \(foundKeywords.joined(separator: ","))"
-
+        
+        var stringWithoutKeywords = ""
+        
+        if let brand = foundBrands.first {
+            stringWithoutKeywords = brand
+        }
+        
+        if let keyword = foundKeywords.first {
+            stringWithoutKeywords = "\(stringWithoutKeywords) \(keyword)"
+        }
+        
         return stringWithoutKeywords
     }
-
-
+    
 }
