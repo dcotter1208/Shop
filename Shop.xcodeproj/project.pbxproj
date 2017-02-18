@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		693D9BF635B467E8DDEB62EA /* Pods_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833FB8C38CF683C9E887F8C7 /* Pods_Shop.framework */; };
+		C01BFF3C1E58C32B00AB3335 /* MessageToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01BFF3B1E58C32B00AB3335 /* MessageToolbar.xib */; };
+		C01BFF3E1E58C64900AB3335 /* MessageToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFF3D1E58C64900AB3335 /* MessageToolbar.swift */; };
 		C03502831E441B15008796E7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C03502821E441B15008796E7 /* .gitignore */; };
 		C03502851E44231D008796E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C03502841E44231D008796E7 /* GoogleService-Info.plist */; };
 		C036EE831E468887009899DB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036EE821E468887009899DB /* Product.swift */; };
@@ -37,6 +39,8 @@
 		377EE0D5E4725D8593E559F6 /* Pods-Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shop/Pods-Shop.release.xcconfig"; sourceTree = "<group>"; };
 		5AA4603E5C3CB89D653D3F71 /* Pods-Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shop/Pods-Shop.debug.xcconfig"; sourceTree = "<group>"; };
 		833FB8C38CF683C9E887F8C7 /* Pods_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01BFF3B1E58C32B00AB3335 /* MessageToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageToolbar.xib; sourceTree = "<group>"; };
+		C01BFF3D1E58C64900AB3335 /* MessageToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToolbar.swift; sourceTree = "<group>"; };
 		C03502821E441B15008796E7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C03502841E44231D008796E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C036EE821E468887009899DB /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 				833FB8C38CF683C9E887F8C7 /* Pods_Shop.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C01BFF3F1E58C65000AB3335 /* MessageToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				C01BFF3D1E58C64900AB3335 /* MessageToolbar.swift */,
+				C01BFF3B1E58C32B00AB3335 /* MessageToolbar.xib */,
+			);
+			name = MessageToolbar;
 			sourceTree = "<group>";
 		};
 		C01C1E9A1E4FD476000D8A8D /* plists */ = {
@@ -199,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */,
+				C01BFF3F1E58C65000AB3335 /* MessageToolbar */,
 			);
 			name = BusinessChatVC;
 			sourceTree = "<group>";
@@ -281,6 +295,7 @@
 				C041B1DA1E341A310021DEA4 /* LaunchScreen.storyboard in Resources */,
 				C03502851E44231D008796E7 /* GoogleService-Info.plist in Resources */,
 				C041B1D71E341A310021DEA4 /* Assets.xcassets in Resources */,
+				C01BFF3C1E58C32B00AB3335 /* MessageToolbar.xib in Resources */,
 				C041B1D51E341A310021DEA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +360,7 @@
 				C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */,
 				C037A44E1E4EA51D00238463 /* String+TextFilter.swift in Sources */,
 				C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */,
+				C01BFF3E1E58C64900AB3335 /* MessageToolbar.swift in Sources */,
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
 				C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */,
 				C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */,

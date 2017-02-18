@@ -45,6 +45,10 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         return businessCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "enterStoreSegue", sender: self)
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
