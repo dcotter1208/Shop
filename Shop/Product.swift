@@ -13,7 +13,7 @@ import UIKit
 
 
 enum ProductType {
-    case bestBuy
+    case kProductTypeBestBuy
 }
 
 struct Product {

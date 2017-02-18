@@ -37,7 +37,7 @@ class JSONMapper {
     func createProduct(forProductType productType: ProductType, json: [String : Any]) -> Product {
         
         switch productType {
-        case .bestBuy:
+        case .kProductTypeBestBuy:
             return createBestBuyProduct(json: json)
         }
     }

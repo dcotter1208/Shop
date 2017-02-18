@@ -48,7 +48,6 @@ extension String {
         var nouns = [String]()
         tagger.enumerateTags(in: NSMakeRange(0, self.characters.count), scheme: NSLinguisticTagSchemeLexicalClass, options: options) {
             (tag, tokenRange, _, _) in
-            //get the token
             let token = (self as NSString).substring(with: tokenRange)
             tokens.append((token, tag))
         }
@@ -59,5 +58,28 @@ extension String {
         return nouns
     }
     
+    func removeStopWords() -> String {
+        let keywords = ProductKeywords.getBestBuyKeywords()
+        let brandNames = ProductKeywords.getBestBuyBrandNames()
+        var foundKeywords = [String]()
+        var foundBrands = [String]()
+        
+        for keyword in keywords {
+            if self.lowercased().contains(keyword.lowercased()) {
+                foundKeywords.append(keyword)
+            }
+        }
+        
+        for brand in brandNames {
+            if self.lowercased().contains(brand.lowercased()) {
+                foundBrands.append(brand)
+            }
+        }
+
+        let stringWithoutKeywords = "\(foundBrands.joined(separator: ",")) \(foundKeywords.joined(separator: ","))"
+
+        return stringWithoutKeywords
+    }
+
 
 }

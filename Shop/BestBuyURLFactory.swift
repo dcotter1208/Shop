@@ -56,13 +56,13 @@ class BestBuyURLFactory {
         return "https://api.bestbuy.com/beta/products/\(productSKU)/similar?apiKey=\(apiKey)"
     }
     
-    //
+    //Keyword Search
     func URLForKeywordSearch(searchText: String) -> String {
-        //**Zip Code will be replaced by the user's location.
+        //****Zip Code will be replaced by the user's location.***
         
         let filteredSearchtext = createSearchableText(fromText: searchText)
-        
-        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&show=storeId,name,products.sku,products.name&apiKey=\(apiKey!)"
+
+        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&show=storeId,name,products.sku,products.name,products.department&apiKey=\(apiKey!)"
     }
     
     fileprivate func createSearchableText(fromText text: String) -> String {
@@ -79,6 +79,15 @@ class BestBuyURLFactory {
         return "search=\(string)".replacingOccurrences(of: " ", with: "&search=")
     }
     
+    
+    func URLForAllCategories() -> String {
+        return "https://api.bestbuy.com/v1/categories?format=json&apiKey=\(apiKey!)"
+    }
+    
+    func URLForProductCategory() -> String {
+        return "https://api.bestbuy.com/v1/categories.json.zip?apiKey=\(apiKey!)"
+    }
+
 }
 
 

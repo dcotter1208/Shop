@@ -20,12 +20,11 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         RealmManager().setCurrentUserProfileWithRealm()
 
        // let badTextFormat = "searchforcomputers"
-        let testStringForFilter = "search for laptops from Apple."
-        let nouns = testStringForFilter.textNouns()
+        let testStringForFilter = "search for LG TV please thank you sir hello halloween."
+
+        let brandSearch = BestBuyURLFactory().URLForKeywordSearch(searchText: testStringForFilter.removeCommandWords().removeStopWords())
         
-        let bestbuyTextSearchURL = BestBuyURLFactory().URLForKeywordSearch(searchText: testStringForFilter)
-        
-        AlamoOperation.requestWithURL(URL: bestbuyTextSearchURL)
+        AlamoOperation.requestWithURL(URL: brandSearch)
         
     }
 

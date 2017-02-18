@@ -23,6 +23,7 @@
 		C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */; };
 		C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F41E4B974500E89C3F /* JSONMapper.swift */; };
 		C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */; };
+		C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */; };
 		C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649741E4619980054CD90 /* CurrentUser.swift */; };
 		C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649761E461B140054CD90 /* RealmCurrentUser.swift */; };
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
@@ -53,6 +54,7 @@
 		C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFactory.swift; sourceTree = "<group>"; };
 		C0C840F41E4B974500E89C3F /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
 		C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDictKey.swift; sourceTree = "<group>"; };
+		C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductKeywords.swift; sourceTree = "<group>"; };
 		C0F649741E4619980054CD90 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C0F649761E461B140054CD90 /* RealmCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCurrentUser.swift; sourceTree = "<group>"; };
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
@@ -91,10 +93,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C01C1E9A1E4FD476000D8A8D /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				C041B1DB1E341A310021DEA4 /* Info.plist */,
+				C03502841E44231D008796E7 /* GoogleService-Info.plist */,
+				C0C840F01E4B7DD800E89C3F /* Keys.plist */,
+			);
+			name = plists;
+			sourceTree = "<group>";
+		};
 		C037A44F1E4EA52800238463 /* NaturalLanguageProcessing */ = {
 			isa = PBXGroup;
 			children = (
 				C037A44D1E4EA51D00238463 /* String+TextFilter.swift */,
+				C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */,
 			);
 			name = NaturalLanguageProcessing;
 			sourceTree = "<group>";
@@ -120,15 +133,14 @@
 		C041B1CE1E341A310021DEA4 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				C041B1CF1E341A310021DEA4 /* AppDelegate.swift */,
-				C0F6497B1E461E9D0054CD90 /* Screens */,
+				C01C1E9A1E4FD476000D8A8D /* plists */,
 				C041B1D31E341A310021DEA4 /* Main.storyboard */,
 				C041B1D61E341A310021DEA4 /* Assets.xcassets */,
 				C041B1D81E341A310021DEA4 /* LaunchScreen.storyboard */,
-				C041B1DB1E341A310021DEA4 /* Info.plist */,
-				C03502841E44231D008796E7 /* GoogleService-Info.plist */,
-				C0C840F01E4B7DD800E89C3F /* Keys.plist */,
 				C03502821E441B15008796E7 /* .gitignore */,
+				C041B1CF1E341A310021DEA4 /* AppDelegate.swift */,
+				C0F6497B1E461E9D0054CD90 /* Screens */,
+				C037A44F1E4EA52800238463 /* NaturalLanguageProcessing */,
 				C0F649781E461B4F0054CD90 /* User */,
 				C0F6497E1E46369E0054CD90 /* Realm */,
 				C0F649851E4661780054CD90 /* Business */,
@@ -162,7 +174,6 @@
 			children = (
 				C0F6497F1E4639A00054CD90 /* BusinessSelectionVC */,
 				C0F649821E4639FF0054CD90 /* BusinessChatVC */,
-				C037A44F1E4EA52800238463 /* NaturalLanguageProcessing */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -341,6 +352,7 @@
 				C0F649841E465ECE0054CD90 /* Business.swift in Sources */,
 				C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */,
 				C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */,
+				C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */,
 				C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */,
 				C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */,
 				C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */,
