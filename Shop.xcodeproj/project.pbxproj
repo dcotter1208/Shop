@@ -26,6 +26,8 @@
 		C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F41E4B974500E89C3F /* JSONMapper.swift */; };
 		C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */; };
 		C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */; };
+		C0F047DC1E594CD5000EBC58 /* BotTextOnlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */; };
+		C0F047DF1E596C24000EBC58 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F047DE1E596C24000EBC58 /* Message.swift */; };
 		C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649741E4619980054CD90 /* CurrentUser.swift */; };
 		C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649761E461B140054CD90 /* RealmCurrentUser.swift */; };
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
@@ -59,6 +61,8 @@
 		C0C840F41E4B974500E89C3F /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
 		C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDictKey.swift; sourceTree = "<group>"; };
 		C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductKeywords.swift; sourceTree = "<group>"; };
+		C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotTextOnlyCell.swift; sourceTree = "<group>"; };
+		C0F047DE1E596C24000EBC58 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C0F649741E4619980054CD90 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C0F649761E461B140054CD90 /* RealmCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCurrentUser.swift; sourceTree = "<group>"; };
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				C0F6497E1E46369E0054CD90 /* Realm */,
 				C0F649851E4661780054CD90 /* Business */,
 				C0C840EB1E479D3A00E89C3F /* Networking */,
+				C0F047E01E596C2C000EBC58 /* Message */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -171,6 +176,22 @@
 				C0C840F41E4B974500E89C3F /* JSONMapper.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		C0F047DD1E594CDF000EBC58 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C0F047E01E596C2C000EBC58 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				C0F047DE1E596C24000EBC58 /* Message.swift */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		C0F649781E461B4F0054CD90 /* User */ = {
@@ -212,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */,
+				C0F047DD1E594CDF000EBC58 /* Cells */,
 				C01BFF3F1E58C65000AB3335 /* MessageToolbar */,
 			);
 			name = BusinessChatVC;
@@ -360,6 +382,7 @@
 				C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */,
 				C037A44E1E4EA51D00238463 /* String+TextFilter.swift in Sources */,
 				C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */,
+				C0F047DC1E594CD5000EBC58 /* BotTextOnlyCell.swift in Sources */,
 				C01BFF3E1E58C64900AB3335 /* MessageToolbar.swift in Sources */,
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
 				C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */,
@@ -371,6 +394,7 @@
 				C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */,
 				C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */,
 				C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */,
+				C0F047DF1E596C24000EBC58 /* Message.swift in Sources */,
 				C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */,
 				C0F6497D1E4633380054CD90 /* RealmManager.swift in Sources */,
 			);
