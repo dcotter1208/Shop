@@ -43,7 +43,7 @@ class JSONMapper {
     }
 
     fileprivate func createBestBuyProduct(json: [String : Any]) -> Product {
-        var product = Product(name: "", UPC: "", description: "'", regPrice: "", salePrice: "", rating: "", displayImage: "", imageURLs: [""], similarProducts: nil, isAvailableInStore: false, isAvailableOnline: false)
+        var product = Product(name: "", UPC: "", SKU: "", description: "'", regPrice: "", salePrice: "", rating: "", displayImage: "", imageURLs: [""], similarProducts: nil, isAvailableInStore: false, isAvailableOnline: false)
         let json = JSON(json)
         if let name = json[kBestBuyProductName].string {
             product.name = name

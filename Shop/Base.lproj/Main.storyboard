@@ -141,7 +141,7 @@
                                             <outlet property="messageTextView" destination="tJm-nm-Wp2" id="G0I-yw-0Eu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrentUserMessageCell" rowHeight="62" id="f77-s0-eXk" customClass="CurrentUserMessageCell" customModule="Shop" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrentUserMessageCell" rowHeight="62" id="f77-s0-eXk" customClass="UserTextOnlyCell" customModule="Shop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f77-s0-eXk" id="Kgv-65-Tcd">
@@ -167,6 +167,9 @@
                                                 <constraint firstItem="mup-vG-vHx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kgv-65-Tcd" secondAttribute="leadingMargin" id="ic5-6F-zit"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="mup-vG-vHx" id="3dK-qz-qfb"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrentUserPortraitMediaMessageCell" rowHeight="250" id="wGN-6W-o1s" customClass="CurrentUserPortraitMediaMessageCell" customModule="Shop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="152" width="375" height="250"/>

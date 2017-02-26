@@ -10,6 +10,11 @@ import UIKit
 
 class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
+
+    //MARK: Helper Vars
+    var businessInContext = Business(name: "", logo: UIImage()) //replace logo with placeholder value.
+    fileprivate var messages = [Message]()
+    fileprivate let firebaseOperation = FirebaseOperation()
     
     //MARK: MessageToolbar vars
     fileprivate let messageToolBarHeight:CGFloat = 44.0
@@ -37,7 +42,6 @@ class BusinessChatVC: UIViewController {
 }
 
 
-
 //MARK: EXTENSION: Chat TableView
 //********************//
 
@@ -53,10 +57,10 @@ extension BusinessChatVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollToLastMessage() {
-//        if messages.count > 0 {
-//            let indexPath = IndexPath(row: messages.count - 1, section: 0)
-//            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-//        }
+        if messages.count > 0 {
+            let indexPath = IndexPath(row: messages.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
 }
@@ -108,12 +112,12 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         }
     }
     
-    //MARK: UITextViewDelegate:
+    //MARK: **UITextViewDelegate**
     func textViewDidChange(_ textView: UITextView) {
         adjustMessageViewHeightWithMessageSize()
     }
     
-    //MARK: MessageToolbar Helpers
+    //MARK: **MessageToolbar Helpers**
     func setUpmessageToolbar() {
         maxmessageToolBarHeight = self.view.frame.height / 1.5
         let messageToolBarWidth = view.frame.size.width
@@ -209,10 +213,23 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         messageToolbar.messageTextView.frame = newFrame
     }
 
-    
-    //MARK: MessageToolbarDelegate
+    //MARK: **MessageToolbarDelegate**
     func sendMessage() {
-        //used to send messages from toolbar
+        //*used to send messages from toolbar*
+
+        if let text = messageToolbar?.messageTextView.text {
+            let message = Message(text: text, product: nil, imagesURLs: nil, messageType: .userTextOnly)
+            firebaseOperation.save(userMessage: message)
+        }
+        
+        //Process:
+        //1. Accept a user a message
+        //2. Send user message to Firebase
+        //3. Send user message to a "message processor class"
+        //4. Message Processor will determine the correct response
+        //5. Message Processor returns a message back to the user and sends to Firebase.
+        //6. Message is handled appropriately based on the user's message.
+        
     }
 
 }

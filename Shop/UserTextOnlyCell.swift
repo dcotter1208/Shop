@@ -1,16 +1,15 @@
 //
-//  BotTextOnlyCell.swift
+//  UserTextOnlyCell.swift
 //  Shop
 //
-//  Created by Donovan Cotter on 2/18/17.
+//  Created by Donovan Cotter on 2/26/17.
 //  Copyright © 2017 DonovanCotter. All rights reserved.
 //
 
 import UIKit
 
-class BotTextOnlyCell: UITableViewCell {
+class UserTextOnlyCell: UITableViewCell {
     @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var logoImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,30 +18,21 @@ class BotTextOnlyCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     func setCellAttributes(withMessage message: Message, business: Business) {
         if let text = message.text {
             setMessageTextView(withText: text)
         }
-        
-        setLogoImageVIew(logo: business.logo)
     }
     
     func setMessageTextView(withText text: String) {
         self.messageTextView.text = text
     }
-    
-    func setLogoImageVIew(logo: UIImage) {
-        DispatchQueue.main.async {
-            self.logoImageView.image = logo
-        }
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         self.messageTextView.text = nil
         self.messageTextView.sizeToFit()
     }
-    
 
 }

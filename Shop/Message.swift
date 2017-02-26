@@ -8,8 +8,15 @@
 
 import Foundation
 
+enum MessageType: String {
+    case userTextOnly
+    case userProductQuery
+    case botTextOnly
+}
+
 struct Message {
     var text: String?
     var product: Product?
     var imagesURLs: [String]?
+    var messageType: MessageType
 }

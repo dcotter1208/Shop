@@ -30,9 +30,10 @@ class MessageToolbar: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    @IBAction func sendMessageSelected(_ sender: AnyObject) {
+
+    @IBAction func sendMessageSelected(_ sender: Any) {
         self.delegate?.sendMessage()
     }
-
+    
+    
 }

@@ -76,17 +76,17 @@ extension String {
             }
         }
         
-        var stringWithoutKeywords = ""
+        var stringWithoutStopWords = ""
         
         if let brand = foundBrands.first {
-            stringWithoutKeywords = brand
+            stringWithoutStopWords = brand
         }
         
         if let keyword = foundKeywords.first {
-            stringWithoutKeywords = "\(stringWithoutKeywords) \(keyword)"
+            stringWithoutStopWords = "\(stringWithoutStopWords) \(keyword)"
         }
         
-        return stringWithoutKeywords
+        return stringWithoutStopWords
     }
     
 }
