@@ -20,11 +20,8 @@ class BotTextOnlyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setCellAttributes(withMessage message: Message, business: Business) {
-        if let text = message.text {
-            setMessageTextView(withText: text)
-        }
-        
+    func setCellAttributes(withMessage message: TextOnlyMessage, business: Business) {
+        setMessageTextView(withText: message.text)
         setLogoImageVIew(logo: business.logo)
     }
     

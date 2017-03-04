@@ -1,8 +1,8 @@
 //
-//  Message.swift
+//  MessageInfo.swift
 //  Shop
 //
-//  Created by Donovan Cotter on 2/19/17.
+//  Created by Donovan Cotter on 3/4/17.
 //  Copyright © 2017 DonovanCotter. All rights reserved.
 //
 
@@ -14,9 +14,6 @@ enum MessageType: String {
     case botTextOnly
 }
 
-struct Message {
-    var text: String?
-    var product: Product?
-    var imagesURLs: [String]?
-    var messageType: MessageType
+protocol MessageInfo {
+    var messageType: MessageType { get set }
 }

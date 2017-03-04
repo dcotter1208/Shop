@@ -12,23 +12,18 @@ class MessageProcessor {
     
     fileprivate let genericResponse = "Sorry, I couldn't find what you were looking for. Please try rephrasing that."
     
-    func process(message: Message, business: Business, botResponse: @escaping BotResponse) {
+    func process(message: TextOnlyMessage, business: Business, botResponse: @escaping BotResponse) {
         
         let punctuationToRemove = [".", "#","$", "*", "!", "(", ")", "()", "%", "@", "^", "+", "=", ":", ";", ",", "/", "_"]
-        
-        guard let text = message.text else {
-            botResponse(genericResponse, nil)
-            return
-        }
-        
-        guard text != "" else {
+        let filteredText = message.text.filterOutPunctuations(punctuations: punctuationToRemove).removeCommandWords().removeStopWords()
+
+        guard filteredText != "" else {
             botResponse(genericResponse, nil)
             return
         }
         
         switch message.messageType {
         case .userTextOnly:
-            let filteredText = text.filterOutPunctuations(punctuations: punctuationToRemove).removeCommandWords().removeStopWords()
             keywordResponse(text: filteredText, business: business, botResponse: { (genericResponse, products) in
                 guard let productArray = products else {
                     botResponse(self.genericResponse, nil)

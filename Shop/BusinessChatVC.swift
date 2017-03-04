@@ -13,7 +13,7 @@ class BusinessChatVC: UIViewController {
 
     //MARK: Helper Vars
     var businessInContext = Business(name: "Best Buy", logo: UIImage()) //replace logo with placeholder value.
-    fileprivate var messages = [Message]()
+    fileprivate var messages = [MessageInfo.Type]()
     fileprivate let firebaseOperation = FirebaseOperation()
     
     //MARK: MessageToolbar vars
@@ -227,7 +227,7 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         
         
         if let text = messageToolbar?.messageTextView.text {
-            let message = Message(text: text, product: nil, imagesURLs: nil, messageType: .userTextOnly)
+            let message = TextOnlyMessage(messageType: .userTextOnly, text: text)
             firebaseOperation.save(userMessage: message)
             MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
                 print("GENERIC MESSAGE: \(genericMessage)")

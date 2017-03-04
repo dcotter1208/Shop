@@ -14,27 +14,17 @@ class FirebaseOperation {
     let firebaseDatabaseRef = FIRDatabase.database().reference()
     
     //Creates a new value for a specified child
-    func save(userMessage message: Message) {
+    func save(userMessage message: TextOnlyMessage) {
         let childRef = firebaseDatabaseRef.child("messages").childByAutoId()
         childRef.setValue(map(userMessage: message))
     }
 
-    fileprivate func map(userMessage message: Message) -> [String : String] {
+    fileprivate func map(userMessage message: TextOnlyMessage) -> [String : String] {
         var firebaseMessage = [String : String]()
-        if let text = message.text {
-            firebaseMessage["text"] = text
-        }
-        
-        //Will only need to save the SKU because we'll perform a network request to get the product's details.
-        if let sku = message.product?.SKU {
-            firebaseMessage["sku"] = sku
-            firebaseMessage["messageType"] = MessageType.userProductQuery.rawValue
-        } else {
-            firebaseMessage["messageType"] = MessageType.userTextOnly.rawValue
-        }
-        
+        firebaseMessage["text"] = message.text
+        firebaseMessage["messageType"] = MessageType.userTextOnly.rawValue
         firebaseMessage["userID"] = CurrentUser.sharedInstance.userID
-        
+    
         return firebaseMessage
     }
     
