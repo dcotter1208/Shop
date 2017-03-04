@@ -18,7 +18,7 @@ class FirebaseOperation {
         let childRef = firebaseDatabaseRef.child("messages").childByAutoId()
         childRef.setValue(map(userMessage: message))
     }
-    
+
     fileprivate func map(userMessage message: Message) -> [String : String] {
         var firebaseMessage = [String : String]()
         if let text = message.text {
@@ -38,8 +38,5 @@ class FirebaseOperation {
         return firebaseMessage
     }
     
-    func save(botMessage message: Message) {
-        
-    }
     
 }

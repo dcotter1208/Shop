@@ -12,7 +12,7 @@ class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
 
     //MARK: Helper Vars
-    var businessInContext = Business(name: "", logo: UIImage()) //replace logo with placeholder value.
+    var businessInContext = Business(name: "Best Buy", logo: UIImage()) //replace logo with placeholder value.
     fileprivate var messages = [Message]()
     fileprivate let firebaseOperation = FirebaseOperation()
     
@@ -217,11 +217,6 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
     func sendMessage() {
         //*used to send messages from toolbar*
 
-        if let text = messageToolbar?.messageTextView.text {
-            let message = Message(text: text, product: nil, imagesURLs: nil, messageType: .userTextOnly)
-            firebaseOperation.save(userMessage: message)
-        }
-        
         //Process:
         //1. Accept a user a message
         //2. Send user message to Firebase
@@ -230,6 +225,15 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         //5. Message Processor returns a message back to the user and sends to Firebase.
         //6. Message is handled appropriately based on the user's message.
         
+        
+        if let text = messageToolbar?.messageTextView.text {
+            let message = Message(text: text, product: nil, imagesURLs: nil, messageType: .userTextOnly)
+            firebaseOperation.save(userMessage: message)
+            MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
+                print("GENERIC MESSAGE: \(genericMessage)")
+                print("PRODUCTS ARRAY: \(products)")
+            })
+        }
     }
 
 }

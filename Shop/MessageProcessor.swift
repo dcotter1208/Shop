@@ -12,32 +12,48 @@ class MessageProcessor {
     
     fileprivate let genericResponse = "Sorry, I couldn't find what you were looking for. Please try rephrasing that."
     
-    func process(message: Message) -> String {
+    func process(message: Message, business: Business, botResponse: @escaping BotResponse) {
         
         let punctuationToRemove = [".", "#","$", "*", "!", "(", ")", "()", "%", "@", "^", "+", "=", ":", ";", ",", "/", "_"]
         
         guard let text = message.text else {
-            return genericResponse
+            botResponse(genericResponse, nil)
+            return
         }
         
-        let filteredText = text.filterOutPunctuations(punctuations: punctuationToRemove).removeCommandWords().removeStopWords()
-        
-        return constructResponse(text: filteredText)
-    }
-    
-    //Use to determine response type.
-    
-    //Need a Response Construction Class that'll be able to construct all sorts of messages, including ones that return multiple product recommendations.
-    fileprivate func constructResponse(text: String) -> String {
         guard text != "" else {
-            return genericResponse
+            botResponse(genericResponse, nil)
+            return
         }
-        return keywordResponse()
+        
+        switch message.messageType {
+        case .userTextOnly:
+            let filteredText = text.filterOutPunctuations(punctuations: punctuationToRemove).removeCommandWords().removeStopWords()
+            keywordResponse(text: filteredText, business: business, botResponse: { (genericResponse, products) in
+                guard let productArray = products else {
+                    botResponse(self.genericResponse, nil)
+                    return
+                }
+                botResponse(nil, productArray)
+            })
+            
+        case .userProductQuery:
+            print("Product Query Search")
+        default:
+            print("")
+        }
+    
     }
 
-    //Responses
-    fileprivate func keywordResponse() -> String {
-        return ""
+    //MARK: Responses
+    fileprivate func keywordResponse(text: String, business: Business, botResponse: @escaping BotResponse) {
+        BotHub().keywordSearchResponse(forSearchText: text, forBusiness: business) { (error, products) in
+            guard let products = products else {
+                botResponse(self.genericResponse, nil)
+                return
+            }
+            botResponse(nil, products)
+        }
     }
     
     //other responses would be recommendation response, accessories, deals, etc.

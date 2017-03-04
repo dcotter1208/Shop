@@ -10,21 +10,23 @@ import Foundation
 import Alamofire
 import AlamofireImage
 
+typealias JSONResponse = ([String : Any]?, Error?) -> Void
+
 class AlamoOperation {
     
-    class func requestWithURL(URL: String) {
+    class func requestWithURL(URL: String, JSONResponse: @escaping JSONResponse) {
         Alamofire.request(URL).responseJSON {
             (response) in
-            print("DATA: \(response.data)")
-            print("Status Code: \(response.response?.statusCode)")
-            print("ERROR: \(response.error)")
             
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-                let product = JSONMapper().createProduct(forProductType: .kProductTypeBestBuy, json: JSON as! [String : Any])
-//                print("PRODUCT****\(product)")
+            if let error = response.error {
+                return JSONResponse(nil, error)
             }
             
+            if let JSON = response.result.value {
+                if let JSONDict = JSON as? [String : Any] {
+                    JSONResponse(JSONDict, nil)
+                }
+            }
         }
     }
     
