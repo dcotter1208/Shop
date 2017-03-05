@@ -17,19 +17,27 @@ class ProductCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITa
     fileprivate var productDetails = [String]()
 
     override func awakeFromNib() {
+        self.productImageButton.imageView?.contentMode = .scaleAspectFill
     }
-    
+
     func setProductDetails(withProduct product: Product) {
-        if let url = URL(string: product.displayImage) {
-            productImageButton.imageView?.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: true) { (data) in
-            }
+        let safeURL = product.displayImage.replacingOccurrences(of: "http://img.bbystatic.com/", with: "https://img-ssl.bbystatic.com/")
+        if let url = URL(string: safeURL) {
+            productImageButton.af_setBackgroundImage(for: .normal, url: url, placeholderImage: #imageLiteral(resourceName: "best_buy_logo"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, completion: { (data) in
+            })
         }
+        populateProductDetails(product: product)
     }
     
     fileprivate func populateProductDetails(product: Product) {
         productDetails.append(product.name)
-        productDetails.append(product.salePrice)
-        productDetails.append(product.rating)
+        productDetails.append("$\(product.salePrice)")
+        productDetails.append("Rating: \(product.rating)")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.productImageButton.setBackgroundImage(nil, for: .normal)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

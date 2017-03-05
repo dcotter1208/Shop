@@ -62,7 +62,8 @@ class BestBuyURLFactory {
         
         let filteredSearchtext = createSearchableText(fromText: searchText)
 
-        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&show=storeId,name,products.sku,products.name,products.department&apiKey=\(apiKey!)"
+        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&apiKey=\(apiKey!)"
+//        /&show=storeId,name,products.sku,products.name,products.department
     }
     
     fileprivate func createSearchableText(fromText text: String) -> String {

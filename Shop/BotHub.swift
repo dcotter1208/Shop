@@ -14,9 +14,9 @@ class BotHub {
     func keywordSearchResponse(forSearchText text: String, forBusiness business: Business, botResponse: @escaping BotResponse) {
         switch business.name {
         case "Best Buy":
-            bestBuyKeywordResponse(keywordSearchText: text, botResponse: { (error, productMessageTuple) in
-                guard let tuple = productMessageTuple else { return } //Supply Error Message
-                botResponse(nil, tuple)
+            bestBuyKeywordResponse(keywordSearchText: text, botResponse: { (error, products) in
+                guard let safeProducts = products else { return } //Supply Error Message
+                botResponse(nil, safeProducts)
             })
         default:
             print("")

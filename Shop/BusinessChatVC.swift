@@ -262,13 +262,13 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         //5. Message Processor returns a message back to the user and sends to Firebase.
         //6. Message is handled appropriately based on the user's message.
         
-        
         if let text = messageToolbar?.messageTextView.text {
             let message = TextOnlyMessage(messageType: .userTextOnly, text: text)
             firebaseOperation.save(userMessage: message)
             
             self.messages.append(message)
             self.chatTableView.reloadData()
+            scrollToLastMessage()
             
             MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
                 print("GENERIC MESSAGE: \(genericMessage)")
@@ -277,6 +277,7 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
                     let productMessage = BotProductsMessage(messageType: .botProductsResponse, products: returnedProducts)
                     self.messages.append(productMessage)
                     self.chatTableView.reloadData()
+                    self.scrollToLastMessage()
                 }
             })
         }
