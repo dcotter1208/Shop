@@ -19,7 +19,7 @@ class UserTextOnlyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setCellAttributes(withMessage message: TextOnlyMessage, business: Business) {
+    func setCellAttributes(withMessage message: TextOnlyMessage) {
             setMessageTextView(withText: message.text)
     }
     

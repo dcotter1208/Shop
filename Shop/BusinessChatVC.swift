@@ -16,7 +16,6 @@ fileprivate let kCurrentUserMessageCellIdentifier = "CurrentUserMessageCell"
 class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
 
-
     //MARK: Helper Vars
     var businessInContext = Business(name: "Best Buy", logo: UIImage()) //replace logo with placeholder value.
     fileprivate var messages = [MessageInfo]()
@@ -75,13 +74,13 @@ extension BusinessChatVC: UITableViewDelegate, UITableViewDataSource {
         switch message.messageType {
             
         case .userTextOnly:
-            print("deque user text only cell")
-            
-        case .userProductQuery:
             let message = message as! TextOnlyMessage
             let cell = chatTableView.dequeueReusableCell(withIdentifier: kCurrentUserMessageCellIdentifier, for: indexPath) as! UserTextOnlyCell
-            cell.setCellAttributes(withMessage: message, business: businessInContext)
+            cell.setCellAttributes(withMessage: message)
             return cell
+            
+        case .userProductQuery:
+            print("return userProductQuery cells - this is for SKU barcode scane")
             
         case .botTextOnly:
             print("deque user text only cell")
@@ -267,6 +266,10 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         if let text = messageToolbar?.messageTextView.text {
             let message = TextOnlyMessage(messageType: .userTextOnly, text: text)
             firebaseOperation.save(userMessage: message)
+            
+            self.messages.append(message)
+            self.chatTableView.reloadData()
+            
             MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
                 print("GENERIC MESSAGE: \(genericMessage)")
                 print("PRODUCTS ARRAY: \(products)")

@@ -29,6 +29,7 @@ class BotProductsResponseCell: UITableViewCell {
     func setCellAttributes(withMessage message: BotProductsMessage, business: Business) {
         self.logoImageView.image = business.logo
         products = message.products
+        print("***************************************\(self.productCollectionView.frame.size)******************************")
         self.productCollectionView.reloadData()
     }
 
@@ -44,7 +45,6 @@ extension BotProductsResponseCell: UICollectionViewDelegate, UICollectionViewDat
         
         let product = products[indexPath.item]
 
-        
         let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: kProductCollectionCellIdentifier, for: indexPath) as! ProductCollectionViewCell
         
         

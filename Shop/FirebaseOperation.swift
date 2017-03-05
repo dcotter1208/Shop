@@ -19,6 +19,17 @@ class FirebaseOperation {
         childRef.setValue(map(userMessage: message))
     }
 
+    //Queries a Firebase child without constraints.
+    func query(child: String, firebaseDataEventType: FIRDataEventType, completion: @escaping (_ result: FIRDataSnapshot) -> Void) {
+        let childRef = firebaseDatabaseRef.child(child)
+        childRef.observe(firebaseDataEventType) {
+            (snapshot) in
+            completion(snapshot)
+        }
+    }
+    
+    
+    //MARK: Helper Methods
     fileprivate func map(userMessage message: TextOnlyMessage) -> [String : String] {
         var firebaseMessage = [String : String]()
         firebaseMessage["text"] = message.text
