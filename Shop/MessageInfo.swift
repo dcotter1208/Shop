@@ -12,6 +12,7 @@ enum MessageType: String {
     case userTextOnly
     case userProductQuery
     case botTextOnly
+    case botProductsResponse
 }
 
 protocol MessageInfo {

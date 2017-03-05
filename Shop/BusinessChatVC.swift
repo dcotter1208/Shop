@@ -8,12 +8,18 @@
 
 import UIKit
 
+fileprivate let kBotProductsResponseCellIdentifier = "BotProductsResponseCell"
+fileprivate let kBotTextOnlyCellIdentifier = "BotTextOnlyCell"
+fileprivate let kCurrentUserMessageCellIdentifier = "CurrentUserMessageCell"
+
+
 class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
 
+
     //MARK: Helper Vars
     var businessInContext = Business(name: "Best Buy", logo: UIImage()) //replace logo with placeholder value.
-    fileprivate var messages = [MessageInfo.Type]()
+    fileprivate var messages = [MessageInfo]()
     fileprivate let firebaseOperation = FirebaseOperation()
     
     //MARK: MessageToolbar vars
@@ -48,12 +54,46 @@ class BusinessChatVC: UIViewController {
 extension BusinessChatVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: Chat TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+        
+        let message = messages[indexPath.row]
+        
+        if let cell = dequeCell(forMessage: message, for: indexPath) {
+            return cell
+        }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: kBotTextOnlyCellIdentifier, for: indexPath) as! BotTextOnlyCell
+        cell.messageTextView.text = "Sorry but I couldn't find what you were looking for."
+        
         return cell
+    }
+    
+    func dequeCell(forMessage message: MessageInfo, for indexPath: IndexPath) -> UITableViewCell? {
+        switch message.messageType {
+            
+        case .userTextOnly:
+            print("deque user text only cell")
+            
+        case .userProductQuery:
+            let message = message as! TextOnlyMessage
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: kCurrentUserMessageCellIdentifier, for: indexPath) as! UserTextOnlyCell
+            cell.setCellAttributes(withMessage: message, business: businessInContext)
+            return cell
+            
+        case .botTextOnly:
+            print("deque user text only cell")
+            
+        case .botProductsResponse:
+            let message = message as! BotProductsMessage
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: kBotProductsResponseCellIdentifier, for: indexPath) as! BotProductsResponseCell
+            cell.setCellAttributes(withMessage: message, business: businessInContext)
+            return cell
+            
+        }
+        return nil
     }
     
     func scrollToLastMessage() {
@@ -64,8 +104,6 @@ extension BusinessChatVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
 
 
 //MARK: EXTENSION: MessageToolbar
@@ -232,6 +270,11 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
             MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
                 print("GENERIC MESSAGE: \(genericMessage)")
                 print("PRODUCTS ARRAY: \(products)")
+                if let returnedProducts = products {
+                    let productMessage = BotProductsMessage(messageType: .botProductsResponse, products: returnedProducts)
+                    self.messages.append(productMessage)
+                    self.chatTableView.reloadData()
+                }
             })
         }
     }
