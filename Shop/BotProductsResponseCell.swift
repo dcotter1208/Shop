@@ -46,8 +46,19 @@ extension BotProductsResponseCell: UICollectionViewDelegate, UICollectionViewDat
 
         let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: kProductCollectionCellIdentifier, for: indexPath) as! ProductCollectionViewCell
 
+        configureStyle(for: productCell)
+        
         productCell.setProductDetails(withProduct: product)
         
         return productCell
     }
+    
+    fileprivate func configureStyle(for cell: ProductCollectionViewCell) {
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.cornerRadius = 5.0
+        cell.layer.masksToBounds = true
+        cell.productImageView.clipsToBounds = true
+    }
+    
 }

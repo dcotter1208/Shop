@@ -13,17 +13,18 @@ fileprivate let kProductDetailCellIdentifier = "ProductDetailTableCell"
 class ProductCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var productDetailsTableView: UITableView!
     @IBOutlet weak var productImageButton: UIButton!
+    @IBOutlet weak var productImageView: UIImageView!
 
     fileprivate var productDetails = [String]()
 
     override func awakeFromNib() {
-        self.productImageButton.imageView?.contentMode = .scaleAspectFill
+
     }
 
     func setProductDetails(withProduct product: Product) {
         let safeURL = product.displayImage.replacingOccurrences(of: "http://img.bbystatic.com/", with: "https://img-ssl.bbystatic.com/")
         if let url = URL(string: safeURL) {
-            productImageButton.af_setBackgroundImage(for: .normal, url: url, placeholderImage: #imageLiteral(resourceName: "best_buy_logo"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, completion: { (data) in
+            productImageView.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "best_buy_logo"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (data) in
             })
         }
         populateProductDetails(product: product)
@@ -37,7 +38,7 @@ class ProductCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITa
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.productImageButton.setBackgroundImage(nil, for: .normal)
+        self.productImageView.image = nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

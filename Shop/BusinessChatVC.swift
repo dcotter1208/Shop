@@ -17,7 +17,7 @@ class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
 
     //MARK: Helper Vars
-    var businessInContext = Business(name: "Best Buy", logo: UIImage()) //replace logo with placeholder value.
+    var businessInContext = Business(name: "Best Buy", logo: #imageLiteral(resourceName: "best_buy_logo")) //replace logo with placeholder value.
     fileprivate var messages = [MessageInfo]()
     fileprivate let firebaseOperation = FirebaseOperation()
     
