@@ -28,6 +28,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Send"/>
+                    <connections>
+                        <action selector="sendMessageSelected:" destination="-1" eventType="touchUpInside" id="HKZ-cU-kox"/>
+                    </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="odJ-Nq-jXc">
                     <rect key="frame" x="63" y="8" width="326" height="40"/>

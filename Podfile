@@ -6,6 +6,7 @@ target 'Shop' do
   use_frameworks!
 
 pod 'Firebase/Core'
+pod 'Firebase/Database'
 pod 'RealmSwift'
 pod 'Alamofire', '~> 4.3'
 pod 'AlamofireImage', '~> 3.1'

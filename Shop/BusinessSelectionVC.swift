@@ -18,14 +18,6 @@ class BusinessSelectionVC: UIViewController, UITableViewDelegate, UITableViewDat
         businesses = BusinessList.getAllBusinesses()
         super.viewDidLoad()
         RealmManager().setCurrentUserProfileWithRealm()
-
-       // let badTextFormat = "searchforcomputers"
-        let testStringForFilter = "search for apple tv please thank you what buy bye looser LG."
-
-        let brandSearch = BestBuyURLFactory().URLForKeywordSearch(searchText: testStringForFilter.removeCommandWords().removeStopWords())
-        
-        AlamoOperation.requestWithURL(URL: brandSearch)
-        
     }
 
     override func didReceiveMemoryWarning() {

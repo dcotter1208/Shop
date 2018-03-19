@@ -19,6 +19,7 @@ enum ProductType {
 struct Product {
     var name: String
     var UPC: String
+    var SKU: String
     var description: String
     var regPrice: String
     var salePrice: String

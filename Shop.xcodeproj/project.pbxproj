@@ -19,13 +19,25 @@
 		C041B1D71E341A310021DEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D61E341A310021DEA4 /* Assets.xcassets */; };
 		C041B1DA1E341A310021DEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C041B1D81E341A310021DEA4 /* LaunchScreen.storyboard */; };
 		C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */; };
+		C0A95EE81E635901005D7DF7 /* UserTextOnlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A95EE71E635901005D7DF7 /* UserTextOnlyCell.swift */; };
+		C0A95EEC1E635B06005D7DF7 /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A95EEB1E635B06005D7DF7 /* MessageProcessor.swift */; };
+		C0A95EEE1E6372A6005D7DF7 /* FirebaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A95EED1E6372A6005D7DF7 /* FirebaseOperation.swift */; };
 		C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */; };
 		C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */; };
 		C0C840F11E4B7DD800E89C3F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C840F01E4B7DD800E89C3F /* Keys.plist */; };
 		C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */; };
-		C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F41E4B974500E89C3F /* JSONMapper.swift */; };
 		C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */; };
 		C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */; };
+		C0DBC4F91E6B2332004850D6 /* BotHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC4F81E6B2332004850D6 /* BotHub.swift */; };
+		C0DBC4FE1E6B3956004850D6 /* BestBuy+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC4FD1E6B3956004850D6 /* BestBuy+JSON.swift */; };
+		C0DBC5031E6B3C47004850D6 /* BestBuyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC5021E6B3C47004850D6 /* BestBuyNetworking.swift */; };
+		C0DBC5051E6B465F004850D6 /* Product+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC5041E6B465F004850D6 /* Product+Networking.swift */; };
+		C0DBC5071E6B5F46004850D6 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC5061E6B5F46004850D6 /* MessageInfo.swift */; };
+		C0DBC5091E6B620F004850D6 /* BotProductsMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC5081E6B620F004850D6 /* BotProductsMessage.swift */; };
+		C0DBC50C1E6B6DFB004850D6 /* BotProductsResponseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC50B1E6B6DFB004850D6 /* BotProductsResponseCell.swift */; };
+		C0DBC50E1E6B7456004850D6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBC50D1E6B7456004850D6 /* ProductCollectionViewCell.swift */; };
+		C0F047DC1E594CD5000EBC58 /* BotTextOnlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */; };
+		C0F047DF1E596C24000EBC58 /* TextOnlyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F047DE1E596C24000EBC58 /* TextOnlyMessage.swift */; };
 		C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649741E4619980054CD90 /* CurrentUser.swift */; };
 		C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649761E461B140054CD90 /* RealmCurrentUser.swift */; };
 		C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */; };
@@ -52,13 +64,25 @@
 		C041B1D91E341A310021DEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C041B1DB1E341A310021DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessChatVC.swift; sourceTree = "<group>"; };
+		C0A95EE71E635901005D7DF7 /* UserTextOnlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTextOnlyCell.swift; sourceTree = "<group>"; };
+		C0A95EEB1E635B06005D7DF7 /* MessageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
+		C0A95EED1E6372A6005D7DF7 /* FirebaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseOperation.swift; sourceTree = "<group>"; };
 		C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyURLFactory.swift; sourceTree = "<group>"; };
 		C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoOperation.swift; sourceTree = "<group>"; };
 		C0C840F01E4B7DD800E89C3F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFactory.swift; sourceTree = "<group>"; };
-		C0C840F41E4B974500E89C3F /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
 		C0C840F61E4BA23E00E89C3F /* ProductDictKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDictKey.swift; sourceTree = "<group>"; };
 		C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductKeywords.swift; sourceTree = "<group>"; };
+		C0DBC4F81E6B2332004850D6 /* BotHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotHub.swift; sourceTree = "<group>"; };
+		C0DBC4FD1E6B3956004850D6 /* BestBuy+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BestBuy+JSON.swift"; sourceTree = "<group>"; };
+		C0DBC5021E6B3C47004850D6 /* BestBuyNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyNetworking.swift; sourceTree = "<group>"; };
+		C0DBC5041E6B465F004850D6 /* Product+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+Networking.swift"; sourceTree = "<group>"; };
+		C0DBC5061E6B5F46004850D6 /* MessageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
+		C0DBC5081E6B620F004850D6 /* BotProductsMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotProductsMessage.swift; sourceTree = "<group>"; };
+		C0DBC50B1E6B6DFB004850D6 /* BotProductsResponseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotProductsResponseCell.swift; sourceTree = "<group>"; };
+		C0DBC50D1E6B7456004850D6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotTextOnlyCell.swift; sourceTree = "<group>"; };
+		C0F047DE1E596C24000EBC58 /* TextOnlyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyMessage.swift; sourceTree = "<group>"; };
 		C0F649741E4619980054CD90 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C0F649761E461B140054CD90 /* RealmCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCurrentUser.swift; sourceTree = "<group>"; };
 		C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSelectionVC.swift; sourceTree = "<group>"; };
@@ -119,8 +143,8 @@
 		C037A44F1E4EA52800238463 /* NaturalLanguageProcessing */ = {
 			isa = PBXGroup;
 			children = (
-				C037A44D1E4EA51D00238463 /* String+TextFilter.swift */,
 				C0CA2BD91E5034BD00A3B699 /* ProductKeywords.swift */,
+				C037A44D1E4EA51D00238463 /* String+TextFilter.swift */,
 			);
 			name = NaturalLanguageProcessing;
 			sourceTree = "<group>";
@@ -158,19 +182,86 @@
 				C0F6497E1E46369E0054CD90 /* Realm */,
 				C0F649851E4661780054CD90 /* Business */,
 				C0C840EB1E479D3A00E89C3F /* Networking */,
+				C0F047E01E596C2C000EBC58 /* Message */,
+				C0DBC4FA1E6B2337004850D6 /* Bot */,
 			);
 			path = Shop;
+			sourceTree = "<group>";
+		};
+		C0A95EE91E63590B005D7DF7 /* BotCells */ = {
+			isa = PBXGroup;
+			children = (
+				C0F047DB1E594CD5000EBC58 /* BotTextOnlyCell.swift */,
+				C0DBC50B1E6B6DFB004850D6 /* BotProductsResponseCell.swift */,
+				C0DBC50D1E6B7456004850D6 /* ProductCollectionViewCell.swift */,
+			);
+			name = BotCells;
+			sourceTree = "<group>";
+		};
+		C0A95EEA1E635914005D7DF7 /* UserCells */ = {
+			isa = PBXGroup;
+			children = (
+				C0A95EE71E635901005D7DF7 /* UserTextOnlyCell.swift */,
+			);
+			name = UserCells;
 			sourceTree = "<group>";
 		};
 		C0C840EB1E479D3A00E89C3F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				C0C840EE1E47BF7300E89C3F /* AlamoOperation.swift */,
-				C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */,
+				C0DBC4FF1E6B39B5004850D6 /* BestBuyHelpers */,
+				C0A95EED1E6372A6005D7DF7 /* FirebaseOperation.swift */,
+				C0DBC5041E6B465F004850D6 /* Product+Networking.swift */,
 				C0C840F21E4B87CE00E89C3F /* KeyFactory.swift */,
-				C0C840F41E4B974500E89C3F /* JSONMapper.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		C0DBC4FA1E6B2337004850D6 /* Bot */ = {
+			isa = PBXGroup;
+			children = (
+				C0DBC4F81E6B2332004850D6 /* BotHub.swift */,
+			);
+			name = Bot;
+			sourceTree = "<group>";
+		};
+		C0DBC4FF1E6B39B5004850D6 /* BestBuyHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				C0DBC4FD1E6B3956004850D6 /* BestBuy+JSON.swift */,
+				C0C840EC1E47A1D800E89C3F /* BestBuyURLFactory.swift */,
+				C0DBC5021E6B3C47004850D6 /* BestBuyNetworking.swift */,
+			);
+			name = BestBuyHelpers;
+			sourceTree = "<group>";
+		};
+		C0DBC50A1E6B62FA004850D6 /* MessageTypes */ = {
+			isa = PBXGroup;
+			children = (
+				C0F047DE1E596C24000EBC58 /* TextOnlyMessage.swift */,
+				C0DBC5081E6B620F004850D6 /* BotProductsMessage.swift */,
+			);
+			name = MessageTypes;
+			sourceTree = "<group>";
+		};
+		C0F047DD1E594CDF000EBC58 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C0A95EE91E63590B005D7DF7 /* BotCells */,
+				C0A95EEA1E635914005D7DF7 /* UserCells */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C0F047E01E596C2C000EBC58 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				C0DBC50A1E6B62FA004850D6 /* MessageTypes */,
+				C0A95EEB1E635B06005D7DF7 /* MessageProcessor.swift */,
+				C0DBC5061E6B5F46004850D6 /* MessageInfo.swift */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		C0F649781E461B4F0054CD90 /* User */ = {
@@ -202,8 +293,8 @@
 		C0F6497F1E4639A00054CD90 /* BusinessSelectionVC */ = {
 			isa = PBXGroup;
 			children = (
-				C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */,
 				C0F649801E4639D90054CD90 /* BusinessCell.swift */,
+				C0F649791E461E940054CD90 /* BusinessSelectionVC.swift */,
 			);
 			name = BusinessSelectionVC;
 			sourceTree = "<group>";
@@ -212,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				C041B1E31E3435310021DEA4 /* BusinessChatVC.swift */,
+				C0F047DD1E594CDF000EBC58 /* Cells */,
 				C01BFF3F1E58C65000AB3335 /* MessageToolbar */,
 			);
 			name = BusinessChatVC;
@@ -263,6 +355,7 @@
 				TargetAttributes = {
 					C041B1CB1E341A310021DEA4 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GNE8UF82DF;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -358,20 +451,32 @@
 				C036EE831E468887009899DB /* Product.swift in Sources */,
 				C0F649811E4639D90054CD90 /* BusinessCell.swift in Sources */,
 				C041B1E41E3435310021DEA4 /* BusinessChatVC.swift in Sources */,
+				C0DBC4F91E6B2332004850D6 /* BotHub.swift in Sources */,
 				C037A44E1E4EA51D00238463 /* String+TextFilter.swift in Sources */,
+				C0A95EEC1E635B06005D7DF7 /* MessageProcessor.swift in Sources */,
 				C0C840ED1E47A1D800E89C3F /* BestBuyURLFactory.swift in Sources */,
+				C0F047DC1E594CD5000EBC58 /* BotTextOnlyCell.swift in Sources */,
 				C01BFF3E1E58C64900AB3335 /* MessageToolbar.swift in Sources */,
+				C0DBC5091E6B620F004850D6 /* BotProductsMessage.swift in Sources */,
 				C0F6497A1E461E940054CD90 /* BusinessSelectionVC.swift in Sources */,
 				C0F649751E4619980054CD90 /* CurrentUser.swift in Sources */,
+				C0A95EE81E635901005D7DF7 /* UserTextOnlyCell.swift in Sources */,
+				C0DBC5051E6B465F004850D6 /* Product+Networking.swift in Sources */,
 				C0F649771E461B140054CD90 /* RealmCurrentUser.swift in Sources */,
+				C0DBC5071E6B5F46004850D6 /* MessageInfo.swift in Sources */,
 				C0F649871E4662050054CD90 /* BusinessList.swift in Sources */,
+				C0DBC5031E6B3C47004850D6 /* BestBuyNetworking.swift in Sources */,
+				C0A95EEE1E6372A6005D7DF7 /* FirebaseOperation.swift in Sources */,
+				C0DBC4FE1E6B3956004850D6 /* BestBuy+JSON.swift in Sources */,
 				C0F649841E465ECE0054CD90 /* Business.swift in Sources */,
 				C0C840F71E4BA23E00E89C3F /* ProductDictKey.swift in Sources */,
+				C0DBC50E1E6B7456004850D6 /* ProductCollectionViewCell.swift in Sources */,
 				C0C840F31E4B87CE00E89C3F /* KeyFactory.swift in Sources */,
 				C0CA2BDA1E5034BD00A3B699 /* ProductKeywords.swift in Sources */,
 				C041B1D01E341A310021DEA4 /* AppDelegate.swift in Sources */,
 				C0C840EF1E47BF7300E89C3F /* AlamoOperation.swift in Sources */,
-				C0C840F51E4B974500E89C3F /* JSONMapper.swift in Sources */,
+				C0F047DF1E596C24000EBC58 /* TextOnlyMessage.swift in Sources */,
+				C0DBC50C1E6B6DFB004850D6 /* BotProductsResponseCell.swift in Sources */,
 				C0F6497D1E4633380054CD90 /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +601,7 @@
 			baseConfigurationReference = 5AA4603E5C3CB89D653D3F71 /* Pods-Shop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GNE8UF82DF;
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.Shop;
@@ -509,6 +615,7 @@
 			baseConfigurationReference = 377EE0D5E4725D8593E559F6 /* Pods-Shop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GNE8UF82DF;
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.Shop;

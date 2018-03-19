@@ -8,8 +8,18 @@
 
 import UIKit
 
+fileprivate let kBotProductsResponseCellIdentifier = "BotProductsResponseCell"
+fileprivate let kBotTextOnlyCellIdentifier = "BotTextOnlyCell"
+fileprivate let kCurrentUserMessageCellIdentifier = "CurrentUserMessageCell"
+
+
 class BusinessChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
+
+    //MARK: Helper Vars
+    var businessInContext = Business(name: "Best Buy", logo: #imageLiteral(resourceName: "best_buy_logo")) //replace logo with placeholder value.
+    fileprivate var messages = [MessageInfo]()
+    fileprivate let firebaseOperation = FirebaseOperation()
     
     //MARK: MessageToolbar vars
     fileprivate let messageToolBarHeight:CGFloat = 44.0
@@ -37,31 +47,62 @@ class BusinessChatVC: UIViewController {
 }
 
 
-
 //MARK: EXTENSION: Chat TableView
 //********************//
 
 extension BusinessChatVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: Chat TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+        
+        let message = messages[indexPath.row]
+        
+        if let cell = dequeCell(forMessage: message, for: indexPath) {
+            return cell
+        }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: kBotTextOnlyCellIdentifier, for: indexPath) as! BotTextOnlyCell
+        cell.messageTextView.text = "Sorry but I couldn't find what you were looking for."
+        
         return cell
     }
     
+    func dequeCell(forMessage message: MessageInfo, for indexPath: IndexPath) -> UITableViewCell? {
+        switch message.messageType {
+            
+        case .userTextOnly:
+            let message = message as! TextOnlyMessage
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: kCurrentUserMessageCellIdentifier, for: indexPath) as! UserTextOnlyCell
+            cell.setCellAttributes(withMessage: message)
+            return cell
+            
+        case .userProductQuery:
+            print("return userProductQuery cells - this is for SKU barcode scane")
+            
+        case .botTextOnly:
+            print("deque user text only cell")
+            
+        case .botProductsResponse:
+            let message = message as! BotProductsMessage
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: kBotProductsResponseCellIdentifier, for: indexPath) as! BotProductsResponseCell
+            cell.setCellAttributes(withMessage: message, business: businessInContext)
+            return cell
+            
+        }
+        return nil
+    }
+    
     func scrollToLastMessage() {
-//        if messages.count > 0 {
-//            let indexPath = IndexPath(row: messages.count - 1, section: 0)
-//            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-//        }
+        if messages.count > 0 {
+            let indexPath = IndexPath(row: messages.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
 }
-
-
 
 
 //MARK: EXTENSION: MessageToolbar
@@ -108,12 +149,12 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         }
     }
     
-    //MARK: UITextViewDelegate:
+    //MARK: **UITextViewDelegate**
     func textViewDidChange(_ textView: UITextView) {
         adjustMessageViewHeightWithMessageSize()
     }
     
-    //MARK: MessageToolbar Helpers
+    //MARK: **MessageToolbar Helpers**
     func setUpmessageToolbar() {
         maxmessageToolBarHeight = self.view.frame.height / 1.5
         let messageToolBarWidth = view.frame.size.width
@@ -209,10 +250,35 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
         messageToolbar.messageTextView.frame = newFrame
     }
 
-    
-    //MARK: MessageToolbarDelegate
+    //MARK: **MessageToolbarDelegate**
     func sendMessage() {
-        //used to send messages from toolbar
+        //*used to send messages from toolbar*
+
+        //Process:
+        //1. Accept a user a message
+        //2. Send user message to Firebase
+        //3. Send user message to a "message processor class"
+        //4. Message Processor will determine the correct response
+        //5. Message Processor returns a message back to the user and sends to Firebase.
+        //6. Message is handled appropriately based on the user's message.
+        
+        if let text = messageToolbar?.messageTextView.text {
+            let message = TextOnlyMessage(messageType: .userTextOnly, text: text)
+            firebaseOperation.save(userMessage: message)
+            
+            self.messages.append(message)
+            self.chatTableView.reloadData()
+            scrollToLastMessage()
+            
+            MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
+                if let returnedProducts = products {
+                    let productMessage = BotProductsMessage(messageType: .botProductsResponse, products: returnedProducts)
+                    self.messages.append(productMessage)
+                    self.chatTableView.reloadData()
+                    self.scrollToLastMessage()
+                }
+            })
+        }
     }
 
 }

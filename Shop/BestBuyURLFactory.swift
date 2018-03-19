@@ -26,7 +26,7 @@ class BestBuyURLFactory {
      func URLsForRelatedProducts(relatedSKUs: [String]) -> [String] {
         var URLS = [String]()
         for SKU in relatedSKUs {
-            let url = "https://api.bestbuy.com/v1/products/\(SKU).json?apiKey=\(apiKey)"
+            let url = "https://api.bestbuy.com/v1/products/\(SKU).json?apiKey=\(String(describing: apiKey))"
             URLS.append(url)
         }
         return URLS
@@ -36,7 +36,7 @@ class BestBuyURLFactory {
     func URLsForProductAccessories(accessorySKUs: [String]) -> [String] {
         var URLS = [String]()
         for SKU in accessorySKUs {
-            let url = "https://api.bestbuy.com/v1/products/\(SKU).json?apiKey=\(apiKey)"
+            let url = "https://api.bestbuy.com/v1/products/\(SKU).json?apiKey=\(String(describing: apiKey))"
             URLS.append(url)
         }
         return URLS
@@ -48,12 +48,12 @@ class BestBuyURLFactory {
      the past thirty days on BESTBUY.COM.
     */
     func URLForAlsoView(productSKU: String) -> String {
-        return "https://api.bestbuy.com/beta/products/\(productSKU)/alsoViewed?apiKey=\(apiKey)"
+        return "https://api.bestbuy.com/beta/products/\(productSKU)/alsoViewed?apiKey=\(String(describing: apiKey))"
     }
     
     //Similar Products
     func URLForSimilarProducts(productSKU: String) -> String {
-        return "https://api.bestbuy.com/beta/products/\(productSKU)/similar?apiKey=\(apiKey)"
+        return "https://api.bestbuy.com/beta/products/\(productSKU)/similar?apiKey=\(String(describing: apiKey))"
     }
     
     //Keyword Search
@@ -62,7 +62,10 @@ class BestBuyURLFactory {
         
         let filteredSearchtext = createSearchableText(fromText: searchText)
 
-        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&show=storeId,name,products.sku,products.name,products.department&apiKey=\(apiKey!)"
+        return "https://api.bestbuy.com/v1/products((\(filteredSearchtext)))?apiKey=\(apiKey!)&format=json"
+        
+//        return "https://api.bestbuy.com/v1/stores(area(48038,50))+products(\(filteredSearchtext))?format=json&apiKey=\(apiKey!)"
+//        /&show=storeId,name,products.sku,products.name,products.department
     }
     
     fileprivate func createSearchableText(fromText text: String) -> String {
@@ -76,9 +79,8 @@ class BestBuyURLFactory {
     }
     
     fileprivate func produceQualifiedTextSearchString(string: String) -> String {
-        return "search=\(string)".replacingOccurrences(of: " ", with: "&search=")
+        return "search=\(string)".replacingOccurrences(of: " ", with: "")
     }
-    
     
     func URLForAllCategories() -> String {
         return "https://api.bestbuy.com/v1/categories?format=json&apiKey=\(apiKey!)"

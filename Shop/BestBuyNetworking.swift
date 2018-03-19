@@ -1,8 +1,8 @@
 //
-//  JSONMapper.swift
+//  BestBuyNetworking.swift
 //  Shop
 //
-//  Created by Donovan Cotter on 2/8/17.
+//  Created by Donovan Cotter on 3/4/17.
 //  Copyright © 2017 DonovanCotter. All rights reserved.
 //
 
@@ -32,19 +32,11 @@ fileprivate var bestBuyDictProductDict = [kBestBuyProductName                 : 
                                           kBestBuyProductInStoreAvailability  : "",
                                           kBestBuyProductOnlineAvailability   : ""] as [String : Any]
 
-class JSONMapper {
+class BestBuyNetworking {
     
-    func createProduct(forProductType productType: ProductType, json: [String : Any]) -> Product {
+    fileprivate func bestBuyProductFromJSON(json: JSON) -> Product {
+        var product = Product(name: "", UPC: "", SKU: "", description: "'", regPrice: "", salePrice: "", rating: "", displayImage: "", imageURLs: [""], similarProducts: nil, isAvailableInStore: false, isAvailableOnline: false)
         
-        switch productType {
-        case .kProductTypeBestBuy:
-            return createBestBuyProduct(json: json)
-        }
-    }
-
-    fileprivate func createBestBuyProduct(json: [String : Any]) -> Product {
-        var product = Product(name: "", UPC: "", description: "'", regPrice: "", salePrice: "", rating: "", displayImage: "", imageURLs: [""], similarProducts: nil, isAvailableInStore: false, isAvailableOnline: false)
-        let json = JSON(json)
         if let name = json[kBestBuyProductName].string {
             product.name = name
         }
@@ -72,12 +64,7 @@ class JSONMapper {
         if let image = json[kBestBuyProductDisplayImage].string {
             product.displayImage = image
         }
-        
-//        if let relatedProduct = json[kBestBuyProductRelatedProducts].array {
-//            //Map related products by taking the related products JSON map those into 'Product' objects
-////            product.similarProducts = 
-//        }
-        
+
         if let inStoreAvailability = json[kBestBuyProductInStoreAvailability].rawString() {
             if inStoreAvailability == "true" {
                 product.isAvailableInStore = true
@@ -97,4 +84,15 @@ class JSONMapper {
         return product
     }
     
+    func bestBuyKeywordSearchProducts(fromJSON json: [String : Any]) -> [Product] {
+        var products = [Product]()
+        if let productArray = JSON(json).bestBuyKeywordJSONResponse() {
+            for product in productArray {
+                let newProduct = bestBuyProductFromJSON(json: product)
+                products.append(newProduct)
+            }
+        }
+        return products
+    }
 }
+

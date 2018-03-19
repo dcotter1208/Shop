@@ -46,7 +46,8 @@ fileprivate let bestBuyKeywords = ["computer",
                                    "home office",
                                    "smart home",
                                    "drones",
-                                   "speakers"]
+                                   "speakers",
+                                   "watch"]
 
 fileprivate let bestBuyBrandNames = ["apple",
                                      "samsung",
@@ -63,7 +64,8 @@ fileprivate let bestBuyBrandNames = ["apple",
                                      "sharp",
                                      "vizio",
                                      "whirlpool",
-                                     "nikon"]
+                                     "nikon",
+                                     "panasonic"]
 
 class ProductKeywords {
     class func getBestBuyKeywords() -> [String] {
