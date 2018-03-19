@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 
 class FirebaseOperation {
-    let firebaseDatabaseRef = FIRDatabase.database().reference()
+    let firebaseDatabaseRef = Database.database().reference()
     
     //Creates a new value for a specified child
     func save(userMessage message: TextOnlyMessage) {
@@ -20,7 +20,7 @@ class FirebaseOperation {
     }
 
     //Queries a Firebase child without constraints.
-    func query(child: String, firebaseDataEventType: FIRDataEventType, completion: @escaping (_ result: FIRDataSnapshot) -> Void) {
+    func query(child: String, firebaseDataEventType: DataEventType, completion: @escaping (_ result: DataSnapshot) -> Void) {
         let childRef = firebaseDatabaseRef.child(child)
         childRef.observe(firebaseDataEventType) {
             (snapshot) in

@@ -11,7 +11,7 @@ import SwiftyJSON
 
 extension JSON {
     func bestBuyKeywordJSONResponse() -> [JSON]? {
-        if let productJSON = self["stores"][0]["products"].array {
+        if let productJSON = self["products"].array {
             return productJSON
         }
         return nil

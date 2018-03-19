@@ -271,8 +271,6 @@ extension BusinessChatVC: MessageToolbarDelegate, UITextViewDelegate {
             scrollToLastMessage()
             
             MessageProcessor().process(message: message, business: businessInContext, botResponse: { (genericMessage, products) in
-                print("GENERIC MESSAGE: \(genericMessage)")
-                print("PRODUCTS ARRAY: \(products)")
                 if let returnedProducts = products {
                     let productMessage = BotProductsMessage(messageType: .botProductsResponse, products: returnedProducts)
                     self.messages.append(productMessage)
